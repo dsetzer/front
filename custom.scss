@@ -1,0 +1,23 @@
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+
+$coincube-darker: #18191f;
+$coincube-dark: #292b34;
+$coincube-accent: #00becc;
+$coincube-green: #2fd6b2;
+$coincube-red: #e130b0;
+$coincube-purple: #aa66cc;
+$coincube-orange: #f69639;
+$coincube-error: #ff3e24;
+$coincube-contrast: #111c21;
+$coincube-dark-blue: #203892;
+$coincube-blue: #2a4bd1;
+$coincube-white: #eceff1;
+$coincube-sky: #c8eeff;
+$coincube-text: $coincube-dark;
+$coincube-primary-background: #fff;
+$coincube-secondary-background: #4b595f;
+
+.form-control {
+  color: $coincube-darker;
+}
