@@ -39,7 +39,7 @@ export default {
         },
         {
           label: 'Base',
-          representedAs: row => row.ex_pair.base_symbol,
+          representedAs: row => row.base_symbol,
           align: 'center',
           sortable: true
         },
@@ -52,7 +52,7 @@ export default {
         },
         {
           label: 'Quote',
-          representedAs: row => row.ex_pair.quote_symbol,
+          representedAs: row => row.quote_symbol,
           align: 'center',
           sortable: true
         },
@@ -60,6 +60,12 @@ export default {
           label: 'Quote Amount',
           component: ConditionalFormatColumn,
           representedAs: row => row.quote_amount,
+          align: 'center',
+          sortable: true
+        },
+        {
+          label: 'Price',
+          representedAs: row => row.price,
           align: 'center',
           sortable: true
         }

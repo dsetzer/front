@@ -229,7 +229,7 @@ export default {
           new_allocations: this.chartAllocations
         })
 
-        this.clearCache(Models.USER())
+        // this.clearCache(Models.USER())
         this.clearCache(Models.CUBE_BALANCES(this.$route.params.cubeID))
         this.clearCache(Models.CUBE_INFO(this.$route.params.cubeID))
         this.clearCache(

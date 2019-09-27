@@ -12,14 +12,14 @@
           <mdb-btn color="primary">DASHBOARD</mdb-btn>
         </router-link>
         <mdb-dropdown tag="li" class="nav-item">
-          <mdb-dropdown-toggle class="toggle" slot="toggle" color="primary">CUBES</mdb-dropdown-toggle>
+          <mdb-dropdown-toggle slot="toggle" color="primary">CUBES</mdb-dropdown-toggle>
           <mdb-dropdown-menu right>
             <mdb-dropdown-item
               v-for="(item, index) in menu"
               :to="item.route || '#'"
-              :key="index"
+              :tabindex="index"
             >{{ item.label }}</mdb-dropdown-item>
-            <mdb-dropdown-item to="/account/cube/add/connection">+ Add Cube</mdb-dropdown-item>
+            <mdb-dropdown-item to="/account/cube/add/connection" tabindex="10">+ Add Cube</mdb-dropdown-item>
           </mdb-dropdown-menu>
         </mdb-dropdown>
         <mdb-btn color="secondary" @click.native.prevent="$auth.signOut()">SIGN OUT</mdb-btn>
@@ -69,7 +69,7 @@ export default {
   }),
   data() {
     return {
-      featureFlags
+      featureFlags,
     }
   },
   computed: {
