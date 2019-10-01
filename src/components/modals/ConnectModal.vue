@@ -33,14 +33,14 @@
           name="passphrase"
           type="text"
         />
+        <mdb-btn
+          :disabled="isLoading"
+          class="nw-submit"
+          color="info"
+          block
+          @click.native.prevent="handleConnectExchange"
+        >Connect {{ exchange.name }}</mdb-btn>
       </form>
-      <mdb-btn
-        :disabled="isLoading"
-        class="nw-submit"
-        color="info"
-        block
-        @click.native.prevent="handleConnectExchange"
-      >Connect {{ exchange.name }}</mdb-btn>
     </mdb-modal-body>
   </mdb-modal>
 </template>
@@ -125,4 +125,10 @@ export default {
 </script>
 
 <style lang="scss">
+.modal-content {
+  min-height: 300px;
+}
+spinner {
+  margin-top: 30px;
+}
 </style>
