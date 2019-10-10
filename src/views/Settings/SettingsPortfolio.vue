@@ -3,7 +3,7 @@
     <mdb-row class="justify-content-center">
       <mdb-col lg="6">
         <div class="d-flex align-items-center justify-content-between">
-          <p class="h5-responsive">Fiat Currency</p>
+          <p class="h5-responsive">Fiat Currency Select</p>
           <app-select
             v-model="selectedFiat"
             :options="fiatOptionsList"
@@ -61,7 +61,7 @@ export default {
   }),
   data() {
     return {
-      fiatOptions: [[7, 'USDT'], [26, 'USDC'], [37, 'TUSD'], [344, 'GUSD'], [501, 'USD'], [502, 'EUR'], [503, 'GBP']]
+      fiatOptions: [['USDT', 'USDT'], ['USDC', 'USDC'], ['TUSD', 'TUSD'], ['GUSD', 'GUSD'], ['USD', 'USD'], ['EUR', 'EUR'], ['GBP', 'GBP']]
     }
   },
   computed: {
@@ -76,7 +76,7 @@ export default {
     },
     selectedFiat: {
       get() {
-        return this.user.fiat_id
+        return this.user.fiat.symbol
       },
       set(value) {
         this.handleFiatChange(value)
@@ -89,16 +89,16 @@ export default {
         name: name.toString(),
         value: value.toString()
       })
-      this.clearCache(Models.USER())
     },
     async handleFiatChange(value) {
       this.user.fiat_id = value
       await this.saveChange({ name: 'fiat_id', value })
-      this.user.open_cubes.map(cube =>
-        this.clearCache(Models.CUBE_BALANCES(cube.id))
-      )
+      for (let [key, cube] of Object.entries(this.user.open_cubes)) {
+        this.clearCache(Models.CUBE_BALANCES(cube.id)),
+        this.clearCache(Models.CUBE_INFO(cube.id))
+      }
       this.clearCache(Models.ACCOUNT_BALANCES_AND_ALLOCATIONS())
-      this.clearCache(Models.ACCOUNT_VALUATIONS())
+      this.clearCache(Models.USER())
     },
     handleBtcChange(value) {
       this.user.btc_data = value

@@ -376,7 +376,6 @@ export default {
       showCubeSettingsModal: false,
       showRogueDetectionModal: false,
       usingGenerator: false,
-      premiumAlgoList: ['Index', 'Centaur', 'Optimized'],
       featureFlags,
       frequencies: [
         [3600, 'Hourly'],
@@ -401,9 +400,6 @@ export default {
     //
     isCentaur() {
       return this.cube.algorithm.name === 'Centaur'
-    },
-    isIndex() {
-      return this.cube.algorithm.name === 'Index'
     },
     isConnected() {
       return !this.cube.api_connections[0].failed_at
