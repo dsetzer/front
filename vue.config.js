@@ -4,9 +4,14 @@ module.exports = {
   devServer: {
     proxy: {
       '/api': {
-        target: 'http://0.0.0.0:443',
+        target: {
+          host: 'flask',
+          protocol: 'http:',
+          port: 443
+        },
         changeOrigin: true
       }
     }
   }
 }
+
