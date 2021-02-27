@@ -22,7 +22,7 @@
     "chart.js": "~2.8.0",
     "core-js": "~2.6.5",
     "datatables.net": "~1.10.22",
-    "hellojs": "~1.18.1",
+    "hellojs": "~1.18.6",
     "jquery": "~3.4.0",
     "mdbvue": "~5.7.0",
     "vee-validate": "~2.2.13",
